@@ -15,11 +15,19 @@ add_executable(main_app)
 
 # pico_generate_pio_header(main_app ${CMAKE_CURRENT_LIST_DIR}/src/tx.pio)
 
-target_sources(main_app PRIVATE src/main.c)
+target_sources(main_app PRIVATE src/main.c
+                                src/crsf/crsf.c)
 
+
+target_include_directories(main_app PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/src/crsf
+    ${CMAKE_CURRENT_LIST_DIR}/src/control
+)
 
 target_link_libraries(main_app 
         pico_stdlib
+        hardware_uart
+        hardware_dma
         hardware_timer
         )
 

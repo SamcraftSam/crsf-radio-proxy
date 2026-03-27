@@ -36,3 +36,7 @@ Must contain commands such as:
 - Settings for FC (flight mode, VTX pwr)
 - Settings for ELRS TX (power, packet rate, telemetry ratio)
 
+
+# UPD:
+
+- TTGO v2 now uses custom-built firmware with full-duplex-like hardware setup. It might still act like half duplex, but at least pins are different.

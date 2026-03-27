@@ -86,10 +86,24 @@ CMakeFiles/main_app.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/src/main.c.s"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/src/main.c -o CMakeFiles/main_app.dir/src/main.c.s
 
+CMakeFiles/main_app.dir/src/crsf/crsf.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/src/crsf/crsf.c.o: /home/alex/GitRepos/crsf-radio-proxy/src/crsf/crsf.c
+CMakeFiles/main_app.dir/src/crsf/crsf.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_app.dir/src/crsf/crsf.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/src/crsf/crsf.c.o -MF CMakeFiles/main_app.dir/src/crsf/crsf.c.o.d -o CMakeFiles/main_app.dir/src/crsf/crsf.c.o -c /home/alex/GitRepos/crsf-radio-proxy/src/crsf/crsf.c
+
+CMakeFiles/main_app.dir/src/crsf/crsf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/src/crsf/crsf.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/src/crsf/crsf.c > CMakeFiles/main_app.dir/src/crsf/crsf.c.i
+
+CMakeFiles/main_app.dir/src/crsf/crsf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/src/crsf/crsf.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/src/crsf/crsf.c -o CMakeFiles/main_app.dir/src/crsf/crsf.c.s
+
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
@@ -103,7 +117,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
@@ -117,7 +131,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2040/pico_platform/platform.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2040/pico_platform/platform.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_common/common.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_common/common.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.s:
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_panic/panic.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_panic/panic.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s: c
 CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/hardware_claim/claim.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/hardware_claim/claim.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/hardware_claim/claim.c.s: cmake_forc
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_sync/sync.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync/sync.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spi
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_irq/irq.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
@@ -214,7 +228,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq.c.s: cmake_forc
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
@@ -228,7 +242,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/sem.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/sem.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
@@ -242,7 +256,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/sem.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/lock_core.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/lock_core.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
@@ -256,7 +270,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/lock_core.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/mutex.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/mutex.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
@@ -270,7 +284,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/mutex.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/critical_section.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_sync/critical_section.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -284,7 +298,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_sync/critical_section.c.s: cmak
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_time/time.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_time/time.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.i: cmake_force
@@ -298,7 +312,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/time.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_time/timeout_helper.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
@@ -312,7 +326,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_timer/timer.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
@@ -326,7 +340,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/datetime.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/datetime.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
@@ -340,7 +354,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/pheap.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/pheap.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
@@ -354,7 +368,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/queue.c
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/common/pico_util/queue.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
@@ -368,7 +382,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_uart/uart.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
@@ -382,7 +396,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_uart/uart.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -396,7 +410,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s: cmak
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_pll/pll.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -410,7 +424,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_pll/pll.c.s: cmake_forc
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -424,7 +438,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -438,7 +452,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s: 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_ticks/ticks.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_ticks/ticks.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i: cmake_force
@@ -452,7 +466,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s: cmake_
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
@@ -466,7 +480,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s: cmake_
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i: cmake_force
@@ -480,7 +494,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s: c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i: cmake_force
@@ -494,7 +508,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_flash/flash.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_flash/flash.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.i: cmake_force
@@ -508,7 +522,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_flash/flash.c.s: cmake_forc
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -521,7 +535,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s: cmake_fo
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_divider/divider.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
@@ -535,7 +549,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_divider/divider.S.s: cm
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
@@ -549,7 +563,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i: cmake_force
@@ -563,7 +577,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i: cmake_force
@@ -577,7 +591,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i: cmake_force
@@ -590,7 +604,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_s
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
@@ -603,7 +617,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s: 
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.i: cmake_force
@@ -616,7 +630,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.i: cmake_force
@@ -630,7 +644,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i: cmake_force
@@ -644,7 +658,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp20
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_math.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
@@ -657,7 +671,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_math.c.s: cma
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.i: cmake_force
@@ -670,7 +684,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_r
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
@@ -683,7 +697,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_ae
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.i: cmake_force
@@ -697,7 +711,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i: cmake_force
@@ -711,7 +725,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_math.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
@@ -724,7 +738,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_math.c.s: cmake
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.i: cmake_force
@@ -738,7 +752,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_malloc/malloc.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_malloc/malloc.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i: cmake_force
@@ -751,7 +765,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s: cmake_fo
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
@@ -765,7 +779,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s: 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_atomic/atomic.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_atomic/atomic.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i: cmake_force
@@ -779,7 +793,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s: cmake_fo
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i: cmake_force
@@ -793,7 +807,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i: cmake_force
@@ -807,7 +821,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_standard_binary_info/standa
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_printf/printf.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
@@ -820,7 +834,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.s: cmake_fo
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_crt0/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building ASM object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o   -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_crt0/crt0.S
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.i: cmake_force
@@ -834,7 +848,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.s: cmake_force
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i: cmake_force
@@ -848,7 +862,7 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_inter
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/main_app.dir/flags.make
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
@@ -859,9 +873,374 @@ CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s: cmake_forc
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s"
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio/stdio.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_flash/flash.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_flash/flash.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_flash/flash.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_flash/flash.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd_control.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd_control.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd_control.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/device/usbd_control.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/video/video_device.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/video/video_device.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/video/video_device.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/class/video/video_device.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/tusb.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/tusb.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/tusb.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/tusb.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o -MF CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c > CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c -o CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o: CMakeFiles/main_app.dir/flags.make
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_dma/dma.c
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o: CMakeFiles/main_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o -MF CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o.d -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o -c /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_dma/dma.c
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.i"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_dma/dma.c > CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.i
+
+CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.s"
+	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/hardware_dma/dma.c -o CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.s
+
 # Object files for target main_app
 main_app_OBJECTS = \
 "CMakeFiles/main_app.dir/src/main.c.o" \
+"CMakeFiles/main_app.dir/src/crsf/crsf.c.o" \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o" \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o" \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o" \
@@ -917,12 +1296,39 @@ main_app_OBJECTS = \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o" \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o" \
 "CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o" \
-"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o"
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o" \
+"CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o"
 
 # External object files for target main_app
 main_app_EXTERNAL_OBJECTS =
 
 main_app.elf: CMakeFiles/main_app.dir/src/main.c.o
+main_app.elf: CMakeFiles/main_app.dir/src/crsf/crsf.c.o
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2040/pico_platform/platform.c.o
@@ -979,11 +1385,37 @@ main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_printf/printf
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
 main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_flash/flash.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_xip_cache/xip_cache.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/tusb.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
+main_app.elf: CMakeFiles/main_app.dir/pico-sdk/src/rp2_common/hardware_dma/dma.c.o
 main_app.elf: CMakeFiles/main_app.dir/build.make
 main_app.elf: pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_library.dir/bs2_default_padded_checksummed.S.o
 main_app.elf: /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_crt0/rp2040/memmap_default.ld
 main_app.elf: CMakeFiles/main_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking CXX executable main_app.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/GitRepos/crsf-radio-proxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Linking CXX executable main_app.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_app.dir/link.txt --verbose=$(VERBOSE)
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-objdump -h /home/alex/GitRepos/crsf-radio-proxy/build/main_app.elf > main_app.dis
 	/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-objdump -d /home/alex/GitRepos/crsf-radio-proxy/build/main_app.elf >> main_app.dis
