@@ -30,6 +30,7 @@ typedef enum {
     CRSF_FRAMETYPE_ATTITUDE           = 0x1E,
     CRSF_FRAMETYPE_RADIO_ID           = 0x3A,
     CRSF_FRAMETYPE_COMMAND            = 0x32,
+    CRSF_FRAMETYPE_OPENTX_SYNC        = 0x10,
 } crsf_frame_type_t;
 
 typedef struct __attribute__((packed)) {
