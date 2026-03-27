@@ -11,6 +11,10 @@
 #define UART_TX_PIN 0
 #define UART_RX_PIN 1
 
+// --- Global Phase Lock Variables ---
+volatile int64_t current_phase_correction = 0;
+volatile int64_t normal_interval_us = 5000; 
+
 // --- Global Buffers and DMA Channels ---
 volatile uint8_t tx_buffer[26];
 volatile int tx_ctrl_chan;
@@ -114,6 +118,33 @@ void trigger_crsf_tx() {
     }
 }
 
+
+int64_t tx_alarm_callback(alarm_id_t id, void *user_data) 
+{
+    gpio_put(TX_TIM_PIN, !gpio_get(TX_TIM_PIN));
+
+    // 1. Animate Channel 0
+    sweep_val += sweep_dir;
+    if (sweep_val > 1811) { sweep_val = 1811; sweep_dir = -10; } 
+    else if (sweep_val < 172) { sweep_val = 172; sweep_dir = 10; }
+    rc_channels[0] = sweep_val; 
+
+    // 2. Repack and send
+    crsf_pack_channels((uint8_t*)tx_buffer, (uint16_t*)rc_channels);
+    trigger_crsf_tx();
+    
+    // 3. Calculate next tick
+    int64_t next_delay = normal_interval_us;
+    if (current_phase_correction != 0) {
+        next_delay -= current_phase_correction; // Apply correction
+        current_phase_correction = 0;           // Reset so it only applies ONCE
+    }
+    
+    // Returning a negative value schedules the next alarm relative to when THIS alarm fired,
+    // ensuring perfect phase stability without compounding drift.
+    return -next_delay; 
+}
+
 // --- The Timer Callback (Fires every 5000us) ---
 bool tx_timer_callback(struct repeating_timer *t) 
 {
@@ -169,6 +200,91 @@ int main() {
     
     trigger_crsf_tx();
 
+
+while(1) 
+    {
+        uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
+        
+        while (rx_read_ptr != dma_write_ptr) 
+        {
+            uint8_t b = rx_ring_buf[rx_read_ptr++]; 
+
+            if (parser_state == 0) {
+                // ACCEPT ALL VALID CRSF SYNC ADDRESSES
+                if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || 
+                    b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || 
+                    b == CRSF_ADDRESS_CRSF_TRANSMITTER) { 
+                    rx_packet_buffer[0] = b;
+                    parser_state = 1;
+                }
+            } 
+            else if (parser_state == 1) {
+                if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { // PREVENT OVERFLOW
+                    parser_state = 0;
+                } else {
+                    rx_packet_buffer[1] = b;
+                    packet_len = b;
+                    packet_idx = 2;
+                    parser_state = 2;
+                }
+            } 
+            else if (parser_state == 2) {
+                rx_packet_buffer[packet_idx++] = b;
+                
+                if (packet_idx >= packet_len + 2) 
+                { 
+                    uint8_t calculated_crc = crsf_crc8(&rx_packet_buffer[2], packet_len - 1);
+                    uint8_t received_crc = rx_packet_buffer[packet_len + 1];
+                    
+                    if (calculated_crc == received_crc) 
+                    {
+                        if (rx_packet_buffer[2] == CRSF_FRAMETYPE_RADIO_ID) 
+                        {
+                            if (rx_packet_buffer[3] == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER)
+                            {
+                                if (rx_packet_buffer[5] == CRSF_FRAMETYPE_OPENTX_SYNC) 
+                                {
+                                    uint32_t interval_raw = (rx_packet_buffer[6] << 24) | (rx_packet_buffer[7] << 16) | (rx_packet_buffer[8] << 8) | rx_packet_buffer[9];
+                                    uint32_t phase_raw = (rx_packet_buffer[10] << 24) | (rx_packet_buffer[11] << 16) | (rx_packet_buffer[12] << 8) | rx_packet_buffer[13];
+
+                                    int32_t phase_us = (int32_t)phase_raw;
+                                    
+                                    printf("OPENTX_SYNC:\r\n");
+                                    printf("  Packet interval raw: 0x%08X\n", interval_raw);
+                                    printf("  Interval us: %lu\n", interval_raw / 10);
+                                    printf("  Phase correction raw: 0x%08X\n", phase_raw);
+                                    printf("  Phase correction us: %i\n", (int32_t)phase_raw);
+                            
+
+
+
+                                    // Clamp phase correction
+                                    if (phase_us > 1000) phase_us = 1000;
+                                    if (phase_us < -1000) phase_us = -1000;
+
+                                    // Update globals for the alarm callback to pick up
+                                    normal_interval_us = (int32_t)interval_raw / 10;
+                                    current_phase_correction = phase_us;
+                                }
+                            }
+                            
+                            // Initialize the alarm loop ONCE
+                            if (!timer_active) 
+                            {
+                                add_alarm_in_us(5000, tx_alarm_callback, NULL, true);
+                                timer_active = true;
+trigger_crsf_tx();
+                            }
+                        }
+                    } 
+                    parser_state = 0; 
+                }
+            }
+        }
+    }
+}
+
+/*    
     while(1) 
     {
         uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
@@ -231,7 +347,8 @@ int main() {
                             printf("  Packet interval raw: 0x%08X\n", interval_raw);
                             printf("  Interval us: %lu\n", interval_raw / 10);
                             printf("  Phase correction raw: 0x%08X\n", phase_raw);
-                       
+                            printf("  Phase correction us: %i\n", (int32_t)phase_raw);
+                            
 
                             int32_t phase_us = (int32_t)phase_raw;
                             int32_t interval_us = (int32_t)interval_raw / 10;
@@ -243,6 +360,7 @@ int main() {
                             
                             cancel_repeating_timer(&crsf_tx_timer);
                             add_repeating_timer_us(-adjusted_interval, tx_timer_callback, NULL, &crsf_tx_timer);
+                            
                         }
                         else
                         {
@@ -269,3 +387,4 @@ int main() {
         }
     }
 }
+*/

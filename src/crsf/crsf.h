@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define CRSF_MAX_FRAME_SIZE 64
+#define CRSF_MAX_FRAME_SIZE 256
 #define CRSF_PAYLOAD_OFFSET 3 // [Sync] [Len] [Type] ...
 
 // CRSF constants for channel values
