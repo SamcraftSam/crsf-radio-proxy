@@ -34,7 +34,7 @@ uint8_t crsf_crc8(const uint8_t *ptr, uint8_t len) {
  * @return Total frame length (26).
  */
 uint8_t crsf_pack_channels(uint8_t *buf, const uint16_t channels[16]) {
-    buf[0] = 0xC8; // Sync for Radio
+    buf[0] = CRSF_ADDRESS_FLIGHT_CONTROLLER;
     buf[1] = 24;   // Length (Type + Payload + CRC) = 1 + 22 + 1
     buf[2] = CRSF_FRAMETYPE_RC_CHANNELS_PACKED;
 

@@ -11,12 +11,15 @@
 #define CRSF_CHANNEL_MID 992
 #define CRSF_CHANNEL_MAX 1811
 
+#define CRSF_BYTE_SYNC 0xC8
+
 // do we need addresses like this?
 //    CRSF_ADDRESS_CRSF_TRANSMITTER     = 0xEE, //Transmitter module
 //    CRSF_ADDRESS_RADIO_TRANSMITTER    = 0xEA, //Handset
 enum {
     CRSF_ADDRESS_CRSF_TRANSMITTER       = 0xEE,
     CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER = 0xEA,
+    CRSF_ADDRESS_FLIGHT_CONTROLLER      = 0xC8,
 };
 
 typedef enum {
