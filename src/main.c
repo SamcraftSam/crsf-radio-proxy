@@ -247,13 +247,13 @@ while(1)
                                     uint32_t interval_raw = (rx_packet_buffer[6] << 24) | (rx_packet_buffer[7] << 16) | (rx_packet_buffer[8] << 8) | rx_packet_buffer[9];
                                     uint32_t phase_raw = (rx_packet_buffer[10] << 24) | (rx_packet_buffer[11] << 16) | (rx_packet_buffer[12] << 8) | rx_packet_buffer[13];
 
-                                    int32_t phase_us = (int32_t)phase_raw;
+                                    int32_t phase_us = (int32_t)phase_raw/10;
                                     
                                     printf("OPENTX_SYNC:\r\n");
                                     printf("  Packet interval raw: 0x%08X\n", interval_raw);
                                     printf("  Interval us: %lu\n", interval_raw / 10);
                                     printf("  Phase correction raw: 0x%08X\n", phase_raw);
-                                    printf("  Phase correction us: %i\n", (int32_t)phase_raw);
+                                    printf("  Phase correction us: %i\n", (int32_t)phase_us);
                             
 
 
