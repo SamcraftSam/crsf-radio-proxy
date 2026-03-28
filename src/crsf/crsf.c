@@ -33,7 +33,7 @@ uint8_t crsf_crc8(const uint8_t *ptr, uint8_t len) {
  * @param buf Must be at least 26 bytes.
  * @return Total frame length (26).
  */
-uint8_t crsf_pack_channels(uint8_t *buf, const uint16_t channels[16]) {
+uint8_t _crsf_pack_channels(uint8_t *buf, const uint16_t channels[16]) {
     buf[0] = CRSF_ADDRESS_FLIGHT_CONTROLLER;
     buf[1] = 24;   // Length (Type + Payload + CRC) = 1 + 22 + 1
     buf[2] = CRSF_FRAMETYPE_RC_CHANNELS_PACKED;
@@ -57,8 +57,49 @@ uint8_t crsf_pack_channels(uint8_t *buf, const uint16_t channels[16]) {
     payload->ch15 = channels[15];
 
     buf[25] = crsf_crc8(&buf[2], 23); // CRC over Type + Payload
+                                      
     return 26;
 }
+
+uint8_t crsf_pack_channels(uint8_t *buf, const uint16_t ch[16]) 
+{
+    buf[0] = CRSF_ADDRESS_FLIGHT_CONTROLLER;
+
+    buf[1] = 24;
+
+    buf[2] = CRSF_FRAMETYPE_RC_CHANNELS_PACKED;
+
+
+    uint32_t bitbuf = 0;
+
+    int bits = 0;
+
+    int idx = 3;
+
+
+    for (int i = 0; i < 16; i++) {
+
+        bitbuf |= ((uint32_t)(ch[i] & 0x07FF)) << bits;
+
+        bits += 11;
+
+
+        while (bits >= 8) {
+
+            buf[idx++] = bitbuf & 0xFF;
+
+            bitbuf >>= 8;
+
+            bits -= 8;
+
+        }
+
+    }
+
+
+    buf[25] = crsf_crc8(&buf[2], 23);
+    return 26;
+} 
 
 /**
  * Parses a Link Statistics frame received from ELRS.

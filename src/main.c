@@ -1,62 +1,62 @@
 #include <stdio.h>
+#include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/dma.h"
 #include "hardware/uart.h"
+#include "hardware/timer.h"
+#include "pico/stdio/driver.h"
 #include "crsf.h"
 
 // --- Hardware Definitions ---
 #define LED_PIN 26
-#define TX_TIM_PIN 27
+#define DBG_PIN 27
 #define UART_ID uart0
 #define BAUD_RATE 420000
 #define UART_TX_PIN 0
 #define UART_RX_PIN 1
 
-// --- Global Phase Lock & Timer Variables ---
+// --- Timing & Phase Lock ---
 volatile int64_t current_phase_correction = 0;
-volatile int64_t normal_interval_us = 5000; 
+volatile int64_t normal_interval_us = 5000; // Default 200Hz
 bool timer_active = false;
 
-// --- Global Buffers and DMA Channels ---
-volatile uint8_t tx_buffer[26];
+// --- Double Buffering for TX ---
+uint8_t tx_buffer_A[CRSF_MAX_FRAME_SIZE];
+uint8_t tx_buffer_B[CRSF_MAX_FRAME_SIZE];
+volatile uint8_t* active_tx_ptr = tx_buffer_A; 
+uint8_t* writing_tx_ptr = tx_buffer_B;         
+
+volatile uint32_t last_usb_packet_ms = 0;      
+
+// --- DMA Channels ---
 volatile int tx_ctrl_chan;
 volatile int rx_ctrl_chan;
-
 uint8_t rx_ring_buf[256] __attribute__((aligned(256)));
 uint8_t rx_read_ptr = 0; 
 
-// --- Global RC Channels & Animation ---
-volatile uint16_t rc_channels[16];
-volatile uint16_t sweep_val = 172; // CRSF minimum value (~988us)
-volatile int sweep_dir = 10;       // How fast the channel moves
-
-// --- Parser State Variables ---
-uint8_t parser_state = 0;
-uint8_t packet_len = 0;
-uint8_t packet_idx = 0;
-uint8_t rx_packet_buffer[CRSF_MAX_FRAME_SIZE];
+// --- Parser States ---
+uint8_t uart_parser_state = 0, uart_packet_len = 0, uart_packet_idx = 0;
+uint8_t uart_rx_buffer[CRSF_MAX_FRAME_SIZE];
+uint8_t usb_parser_state = 0, usb_packet_len = 0, usb_packet_idx = 0;
+uint8_t usb_rx_buffer[CRSF_MAX_FRAME_SIZE];
 
 // ============================================================================
-// HARDWARE INIT & DMA CONTROL
+// HARDWARE & TRANSMIT
 // ============================================================================
 
-void init_crsf_hardware() {
+void init_hardware() {
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 
-    // TX DMA Setup
     tx_ctrl_chan = dma_claim_unused_channel(true);
     dma_channel_config tx_cfg = dma_channel_get_default_config(tx_ctrl_chan);
     channel_config_set_transfer_data_size(&tx_cfg, DMA_SIZE_8);
     channel_config_set_read_increment(&tx_cfg, true);
     channel_config_set_write_increment(&tx_cfg, false);
     channel_config_set_dreq(&tx_cfg, DREQ_UART0_TX);
+    dma_channel_configure(tx_ctrl_chan, &tx_cfg, &uart_get_hw(UART_ID)->dr, active_tx_ptr, 26, false);
 
-    dma_channel_configure(tx_ctrl_chan, &tx_cfg,
-        &uart_get_hw(UART_ID)->dr, tx_buffer, 26, false);
-
-    // RX DMA Setup (Ring Buffer)
     rx_ctrl_chan = dma_claim_unused_channel(true);
     dma_channel_config rx_cfg = dma_channel_get_default_config(rx_ctrl_chan);
     channel_config_set_transfer_data_size(&rx_cfg, DMA_SIZE_8);
@@ -64,117 +64,105 @@ void init_crsf_hardware() {
     channel_config_set_write_increment(&rx_cfg, true);
     channel_config_set_dreq(&rx_cfg, DREQ_UART0_RX);
     channel_config_set_ring(&rx_cfg, true, 8); 
-
-    dma_channel_configure(rx_ctrl_chan, &rx_cfg,
-        rx_ring_buf, &uart_get_hw(UART_ID)->dr, 0xFFFFFFFF, true);
-} 
+    dma_channel_configure(rx_ctrl_chan, &rx_cfg, rx_ring_buf, &uart_get_hw(UART_ID)->dr, 0xFFFFFFFF, true);
+}
 
 void trigger_crsf_tx() {
     if (!dma_channel_is_busy(tx_ctrl_chan)) {
-        dma_channel_transfer_from_buffer_now(tx_ctrl_chan, tx_buffer, 26);
-        gpio_put(LED_PIN, !gpio_get(LED_PIN)); 
+        dma_channel_transfer_from_buffer_now(tx_ctrl_chan, (void*)active_tx_ptr, 26);
     }
 }
 
-// ============================================================================
-// TIMING & PHASE LOCK LOGIC
-// ============================================================================
-
-int64_t tx_alarm_callback(alarm_id_t id, void *user_data) 
+void apply_failsafe() 
 {
-    gpio_put(TX_TIM_PIN, !gpio_get(TX_TIM_PIN));
-
-    // 1. Animate Channel 0
-    sweep_val += sweep_dir;
-    if (sweep_val > 1811) { sweep_val = 1811; sweep_dir = -10; } 
-    else if (sweep_val < 172) { sweep_val = 172; sweep_dir = 10; }
-    rc_channels[0] = sweep_val; 
-
-    // 2. Repack and send
-    crsf_pack_channels((uint8_t*)tx_buffer, (uint16_t*)rc_channels);
-    trigger_crsf_tx();
+    //printf("Failsafe!\r\n");
+    uint16_t fs_channels[16];
+    for (int i = 0; i < 16; i++) fs_channels[i] = CRSF_CHANNEL_MID;
+    //fs_channels[0] = CRSF_CHANNEL_MIN; //- ROLL
+    //fs_channels[1] = CRSF_CHANNEL_MIN; //- PITCH
+    fs_channels[2] = CRSF_CHANNEL_MIN; //- Throttle
+    //fs_channels[3]  = CRSF_CHANNEL_MIN; //- YAW
     
-    // 3. Calculate next tick with phase correction
+    // ARMED when both are MAX!!!
+    //fs_channels[4]  = CRSF_CHANNEL_MAX;
+    //fs_channels[13] = CRSF_CHANNEL_MAX;
+
+    crsf_pack_channels(writing_tx_ptr, fs_channels);
+    writing_tx_ptr[25] = crsf_crc8((uint8_t*)&writing_tx_ptr[2], 23);
+    
+    // Swap safely to active buffer
+    uint8_t* temp = (uint8_t*)active_tx_ptr;
+    active_tx_ptr = writing_tx_ptr;
+    writing_tx_ptr = temp;
+}
+
+int64_t tx_alarm_callback(alarm_id_t id, void *user_data) {
+    trigger_crsf_tx(); 
+    
     int64_t next_delay = normal_interval_us;
     if (current_phase_correction != 0) {
         next_delay -= current_phase_correction; 
-        current_phase_correction = 0; // Apply ONCE
+        current_phase_correction = 0; 
     }
-    
-    return -next_delay; // Negative ensures relative timing
+    return -next_delay; 
 }
 
 // ============================================================================
-// PACKET HANDLERS
+// PARSERS
 // ============================================================================
 
-void handle_opentx_sync_packet() {
-    // Extract payload from OpenTX Sync frame
-    uint32_t interval_raw = (rx_packet_buffer[6] << 24) | (rx_packet_buffer[7] << 16) | (rx_packet_buffer[8] << 8) | rx_packet_buffer[9];
-    uint32_t phase_raw = (rx_packet_buffer[10] << 24) | (rx_packet_buffer[11] << 16) | (rx_packet_buffer[12] << 8) | rx_packet_buffer[13];
-
-    int32_t phase_us = (int32_t)phase_raw / 10;
-    
-    // Clamp phase correction to prevent wild swings
-    if (phase_us > 1000) phase_us = 1000;
-    if (phase_us < -1000) phase_us = -1000;
-
-    // Update phase lock globals
-    normal_interval_us = (int32_t)interval_raw / 10;
-    current_phase_correction = phase_us;
-
-    // Start the alarm loop ONCE if it hasn't been started
-    if (!timer_active) {
-        add_alarm_in_us(5000, tx_alarm_callback, NULL, true);
-        timer_active = true;
-        trigger_crsf_tx();
-        printf("Sync Locked! Alarm started.\r\n");
-    }
-}
-
-// ============================================================================
-// CRSF PARSER STATE MACHINE
-// ============================================================================
-
-void crsf_parse_byte(uint8_t b) {
-    if (parser_state == 0) {
-        // ACCEPT ALL VALID CRSF SYNC ADDRESSES
-        if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || 
-            b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || 
-            b == CRSF_ADDRESS_CRSF_TRANSMITTER) { 
-            rx_packet_buffer[0] = b;
-            parser_state = 1;
-        }
-    } 
-    else if (parser_state == 1) {
-        if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { 
-            parser_state = 0; // Prevent overflow/garbage lengths
-        } else {
-            rx_packet_buffer[1] = b;
-            packet_len = b;
-            packet_idx = 2;
-            parser_state = 2;
-        }
-    } 
-    else if (parser_state == 2) {
-        rx_packet_buffer[packet_idx++] = b;
-        
-        // If we have received the full packet + CRC byte
-        if (packet_idx >= packet_len + 2) { 
-            uint8_t calculated_crc = crsf_crc8(&rx_packet_buffer[2], packet_len - 1);
-            uint8_t received_crc = rx_packet_buffer[packet_len + 1];
-            
-            if (calculated_crc == received_crc) {
-                // Route valid packets based on Frame Type
-                if (rx_packet_buffer[2] == CRSF_FRAMETYPE_RADIO_ID && 
-                    rx_packet_buffer[3] == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER && 
-                    rx_packet_buffer[5] == CRSF_FRAMETYPE_OPENTX_SYNC) 
-                {
-                    handle_opentx_sync_packet();
+void parse_usb_byte(uint8_t b) {
+    if (usb_parser_state == 0) {
+        if (b == 0xC8 || b == 0xEE) { usb_rx_buffer[0] = b; usb_parser_state = 1; }
+    } else if (usb_parser_state == 1) {
+        if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { usb_parser_state = 0; } 
+        else { usb_rx_buffer[1] = b; usb_packet_len = b; usb_packet_idx = 2; usb_parser_state = 2; }
+    } else if (usb_parser_state == 2) {
+        usb_rx_buffer[usb_packet_idx++] = b;
+        if (usb_packet_idx >= usb_packet_len + 2) { 
+            if (crsf_crc8(&usb_rx_buffer[2], usb_packet_len - 1) == usb_rx_buffer[usb_packet_len + 1]) {
+                if (usb_rx_buffer[2] == CRSF_FRAMETYPE_RC_CHANNELS_PACKED) {
+                    memcpy(writing_tx_ptr, usb_rx_buffer, usb_packet_len + 2);
+                    uint8_t* temp = (uint8_t*)active_tx_ptr;
+                    active_tx_ptr = writing_tx_ptr;
+                    writing_tx_ptr = temp;
+                    last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
                 }
-                // TODO: Add Link Statistics or other telemetry handlers here later
+            }
+            usb_parser_state = 0;
+        }
+    }
+}
+
+void parse_uart_byte(uint8_t b) {
+    if (uart_parser_state == 0) {
+        if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || b == CRSF_ADDRESS_CRSF_TRANSMITTER) { 
+            uart_rx_buffer[0] = b; uart_parser_state = 1; 
+        }
+    } else if (uart_parser_state == 1) {
+        if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { uart_parser_state = 0; } 
+        else { uart_rx_buffer[1] = b; uart_packet_len = b; uart_packet_idx = 2; uart_parser_state = 2; }
+    } else if (uart_parser_state == 2) {
+        uart_rx_buffer[uart_packet_idx++] = b;
+        if (uart_packet_idx >= uart_packet_len + 2) { 
+            if (crsf_crc8(&uart_rx_buffer[2], uart_packet_len - 1) == uart_rx_buffer[uart_packet_len + 1]) {
+                if (uart_rx_buffer[2] == CRSF_FRAMETYPE_RADIO_ID && uart_rx_buffer[5] == CRSF_FRAMETYPE_OPENTX_SYNC) {
+                    uint32_t interval_raw = (uart_rx_buffer[6] << 24) | (uart_rx_buffer[7] << 16) | (uart_rx_buffer[8] << 8) | uart_rx_buffer[9];
+                    uint32_t phase_raw = (uart_rx_buffer[10] << 24) | (uart_rx_buffer[11] << 16) | (uart_rx_buffer[12] << 8) | uart_rx_buffer[13];
+                    
+                    normal_interval_us = (int32_t)interval_raw / 10;
+                    current_phase_correction = (int32_t)phase_raw / 10;
+                    // Clamp phase
+                    if (current_phase_correction > 1000) current_phase_correction = 1000;
+                    if (current_phase_correction < -1000) current_phase_correction = -1000;
+                } 
+                else 
+                {
+                    static int cnt = 0;
+                    for (int i = 0; i < uart_packet_len + 2; i++) putchar_raw(uart_rx_buffer[i]);
+                }
             } 
-            parser_state = 0; // Reset for next packet
+            uart_parser_state = 0; 
         }
     }
 }
@@ -185,32 +173,51 @@ void crsf_parse_byte(uint8_t b) {
 
 int main() {
     stdio_init_all();
-    
+    stdio_set_translate_crlf(&stdio_usb, false);
+
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_init(TX_TIM_PIN);
-    gpio_set_dir(TX_TIM_PIN, GPIO_OUT);
-    
-    init_crsf_hardware();
-    
-    sleep_ms(3000); // Wait for module to boot
-    
-    // Initialize all channels to MID
-    for (int i = 0; i < 16; i++) {
-        rc_channels[i] = CRSF_CHANNEL_MID;
-    }
-    crsf_pack_channels((uint8_t*)tx_buffer, (uint16_t*)rc_channels);
-    
-    printf("CRSF Hardware Initialized. Listening for Heartbeat...\r\n");
-    trigger_crsf_tx(); // Kickoff
+    gpio_init(DBG_PIN);
+    gpio_set_dir(DBG_PIN, GPIO_OUT);
+    init_hardware();
+    sleep_ms(500); // Quick settling
+
+    // 1. Prepare safe disarmed packet
+    apply_failsafe();
+    last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
+
+    // 2. START TRANSMITTING IMMEDIATELY (200Hz default)
+    // We don't wait for UART sync anymore.
+    add_alarm_in_us(5000, tx_alarm_callback, NULL, true);
+    timer_active = true;
 
     while(1) {
-        // Find how far the DMA has written into our ring buffer
+        // Handle USB Input
+        int c = getchar_timeout_us(0);
+        if (c != PICO_ERROR_TIMEOUT) 
+        {
+            gpio_put(DBG_PIN, 1);
+            parse_usb_byte((uint8_t)c);
+        }
+        else
+        {
+            gpio_put(DBG_PIN, 0);
+        }
+
+        // Handle UART Telemetry
         uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
-        
-        // Drain the buffer and parse every byte
         while (rx_read_ptr != dma_write_ptr) {
-            crsf_parse_byte(rx_ring_buf[rx_read_ptr++]); 
+            parse_uart_byte(rx_ring_buf[rx_read_ptr++]); 
+        }
+
+        // Failsafe Check (1 second timeout)
+        if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 1000) {
+            apply_failsafe();
+            last_usb_packet_ms = to_ms_since_boot(get_absolute_time()); 
+            gpio_put(LED_PIN, 0); // LED off = Failsafe
+        } else {
+            gpio_put(LED_PIN, 1); // LED on = USB Link Active
         }
     }
+    sleep_us(10);
 }

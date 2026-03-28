@@ -3912,6 +3912,7 @@ CMakeFiles/main_app.dir/src/main.c.o: /home/alex/GitRepos/crsf-radio-proxy/src/m
   /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
   /home/alex/GitRepos/crsf-radio-proxy/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/alex/GitRepos/crsf-radio-proxy/src/crsf/crsf.h \
   /opt/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/_ansi.h \
