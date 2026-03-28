@@ -10,10 +10,18 @@
 // --- Hardware Definitions ---
 #define LED_PIN 26
 #define DBG_PIN 27
-#define UART_ID uart0
+#define CRSF_UART uart0  // UART0 for CRSF
+#define PC_UART   uart1  // UART1 for PC Link
 #define BAUD_RATE 420000
-#define UART_TX_PIN 0
-#define UART_RX_PIN 1
+#define PC_BAUD   420000 
+
+// CRSF Pins (UART0)
+#define CRSF_TX_PIN 0
+#define CRSF_RX_PIN 1
+
+// PC Link Pins (UART1)
+#define PC_TX_PIN 4
+#define PC_RX_PIN 5
 
 // --- Timing & Phase Lock ---
 volatile int64_t current_phase_correction = 0;
@@ -45,9 +53,14 @@ uint8_t usb_rx_buffer[CRSF_MAX_FRAME_SIZE];
 // ============================================================================
 
 void init_hardware() {
-    uart_init(UART_ID, BAUD_RATE);
-    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+    uart_init(CRSF_UART, BAUD_RATE);
+    gpio_set_function(CRSF_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(CRSF_RX_PIN, GPIO_FUNC_UART);
+
+    // Add this inside init_hardware()
+    uart_init(PC_UART, PC_BAUD);
+    gpio_set_function(PC_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(PC_RX_PIN, GPIO_FUNC_UART);
 
     tx_ctrl_chan = dma_claim_unused_channel(true);
     dma_channel_config tx_cfg = dma_channel_get_default_config(tx_ctrl_chan);
@@ -55,7 +68,7 @@ void init_hardware() {
     channel_config_set_read_increment(&tx_cfg, true);
     channel_config_set_write_increment(&tx_cfg, false);
     channel_config_set_dreq(&tx_cfg, DREQ_UART0_TX);
-    dma_channel_configure(tx_ctrl_chan, &tx_cfg, &uart_get_hw(UART_ID)->dr, active_tx_ptr, 26, false);
+    dma_channel_configure(tx_ctrl_chan, &tx_cfg, &uart_get_hw(CRSF_UART)->dr, active_tx_ptr, 26, false);
 
     rx_ctrl_chan = dma_claim_unused_channel(true);
     dma_channel_config rx_cfg = dma_channel_get_default_config(rx_ctrl_chan);
@@ -64,7 +77,7 @@ void init_hardware() {
     channel_config_set_write_increment(&rx_cfg, true);
     channel_config_set_dreq(&rx_cfg, DREQ_UART0_RX);
     channel_config_set_ring(&rx_cfg, true, 8); 
-    dma_channel_configure(rx_ctrl_chan, &rx_cfg, rx_ring_buf, &uart_get_hw(UART_ID)->dr, 0xFFFFFFFF, true);
+    dma_channel_configure(rx_ctrl_chan, &rx_cfg, rx_ring_buf, &uart_get_hw(CRSF_UART)->dr, 0xFFFFFFFF, true);
 }
 
 void trigger_crsf_tx() {
@@ -159,8 +172,10 @@ void parse_uart_byte(uint8_t b) {
                 else 
                 {
                     static int cnt = 0;
-                    for (int i = 0; i < uart_packet_len + 2; i++) putchar_raw(uart_rx_buffer[i]);
-                }
+     
+for (int i = 0; i < uart_packet_len + 2; i++) {
+    uart_putc(PC_UART, uart_rx_buffer[i]);
+}                }
             } 
             uart_parser_state = 0; 
         }
@@ -173,7 +188,6 @@ void parse_uart_byte(uint8_t b) {
 
 int main() {
     stdio_init_all();
-    stdio_set_translate_crlf(&stdio_usb, false);
 
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
@@ -192,32 +206,46 @@ int main() {
     timer_active = true;
 
     while(1) {
-        // Handle USB Input
-        int c = getchar_timeout_us(0);
-        if (c != PICO_ERROR_TIMEOUT) 
+
+        while (uart_is_readable(PC_UART)) 
         {
-            gpio_put(DBG_PIN, 1);
-            parse_usb_byte((uint8_t)c);
+            uint8_t c = uart_getc(PC_UART);
+            gpio_put(DBG_PIN, !gpio_get(DBG_PIN));
+
+// --- ЭХО: отправляем этот же байт обратно сразу ---
+    //uart_putc(PC_UART, c);
+            parse_usb_byte(c);
         }
-        else
+        // Handle UART Telemetry
+
+        uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
+
+        while (rx_read_ptr != dma_write_ptr) 
         {
-            gpio_put(DBG_PIN, 0);
+
+            parse_uart_byte(rx_ring_buf[rx_read_ptr++]); 
+
         }
 
-        // Handle UART Telemetry
-        uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
-        while (rx_read_ptr != dma_write_ptr) {
-            parse_uart_byte(rx_ring_buf[rx_read_ptr++]); 
-        }
 
         // Failsafe Check (1 second timeout)
+
         if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 1000) {
+
             apply_failsafe();
+
             last_usb_packet_ms = to_ms_since_boot(get_absolute_time()); 
+
             gpio_put(LED_PIN, 0); // LED off = Failsafe
+
         } else {
+
             gpio_put(LED_PIN, 1); // LED on = USB Link Active
+
         }
+
     }
+
     sleep_us(10);
-}
+
+} 

@@ -31,7 +31,12 @@ target_link_libraries(main_app
         hardware_timer
         )
 
-pico_enable_stdio_usb(main_app 1)
+target_compile_definitions(main_app PRIVATE PICO_STDIO_USB_STDOUT_TIMEOUT_US=1000)
+target_compile_definitions(main_app PRIVATE
+    PICO_STDIO_USB_NOT_BLOCK_ON_BUFFER_FULL=1
+)
+
+pico_enable_stdio_usb(main_app 0)
 pico_enable_stdio_uart(main_app 0)
 
 pico_add_extra_outputs(main_app)
