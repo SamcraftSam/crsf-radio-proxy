@@ -230,8 +230,7 @@ int main() {
 
         // Failsafe Check (1 second timeout)
 
-        if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 1000) {
-
+        if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 2000) {
             apply_failsafe();
 
             last_usb_packet_ms = to_ms_since_boot(get_absolute_time()); 

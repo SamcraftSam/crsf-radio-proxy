@@ -1,5 +1,0 @@
-/home/alex/GitRepos/crsf-radio-proxy/build/pioasm-install/pioasm/pioasm
-/home/alex/GitRepos/crsf-radio-proxy/build/pioasm-install/pioasm/pioasmTargets.cmake
-/home/alex/GitRepos/crsf-radio-proxy/build/pioasm-install/pioasm/pioasmTargets-release.cmake
-/home/alex/GitRepos/crsf-radio-proxy/build/pioasm-install/pioasm/pioasmConfig.cmake
-/home/alex/GitRepos/crsf-radio-proxy/build/pioasm-install/pioasm/pioasmConfigVersion.cmake
