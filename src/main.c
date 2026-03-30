@@ -52,12 +52,12 @@ uint8_t usb_rx_buffer[CRSF_MAX_FRAME_SIZE];
 // HARDWARE & TRANSMIT
 // ============================================================================
 
-void init_hardware() {
+void init_hardware() 
+{
     uart_init(CRSF_UART, BAUD_RATE);
     gpio_set_function(CRSF_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(CRSF_RX_PIN, GPIO_FUNC_UART);
 
-    // Add this inside init_hardware()
     uart_init(PC_UART, PC_BAUD);
     gpio_set_function(PC_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(PC_RX_PIN, GPIO_FUNC_UART);
@@ -80,8 +80,10 @@ void init_hardware() {
     dma_channel_configure(rx_ctrl_chan, &rx_cfg, rx_ring_buf, &uart_get_hw(CRSF_UART)->dr, 0xFFFFFFFF, true);
 }
 
-void trigger_crsf_tx() {
-    if (!dma_channel_is_busy(tx_ctrl_chan)) {
+void trigger_crsf_tx() 
+{
+    if (!dma_channel_is_busy(tx_ctrl_chan)) 
+    {
         dma_channel_transfer_from_buffer_now(tx_ctrl_chan, (void*)active_tx_ptr, 26);
     }
 }
@@ -100,7 +102,7 @@ void apply_failsafe()
     //fs_channels[4]  = CRSF_CHANNEL_MAX;
     //fs_channels[13] = CRSF_CHANNEL_MAX;
 
-    crsf_pack_channels(writing_tx_ptr, fs_channels);
+    crsf_pack_rc_channels(writing_tx_ptr, fs_channels);
     writing_tx_ptr[25] = crsf_crc8((uint8_t*)&writing_tx_ptr[2], 23);
     
     // Swap safely to active buffer
@@ -109,11 +111,13 @@ void apply_failsafe()
     writing_tx_ptr = temp;
 }
 
-int64_t tx_alarm_callback(alarm_id_t id, void *user_data) {
+int64_t tx_alarm_callback(alarm_id_t id, void *user_data) 
+{
     trigger_crsf_tx(); 
     
     int64_t next_delay = normal_interval_us;
-    if (current_phase_correction != 0) {
+    if (current_phase_correction != 0) 
+    {
         next_delay -= current_phase_correction; 
         current_phase_correction = 0; 
     }
@@ -124,17 +128,25 @@ int64_t tx_alarm_callback(alarm_id_t id, void *user_data) {
 // PARSERS
 // ============================================================================
 
-void parse_usb_byte(uint8_t b) {
-    if (usb_parser_state == 0) {
+void parse_user_in(uint8_t b) 
+{
+    if (usb_parser_state == 0) 
+    {
         if (b == 0xC8 || b == 0xEE) { usb_rx_buffer[0] = b; usb_parser_state = 1; }
-    } else if (usb_parser_state == 1) {
+    } 
+    else if (usb_parser_state == 1) 
+    {
         if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { usb_parser_state = 0; } 
         else { usb_rx_buffer[1] = b; usb_packet_len = b; usb_packet_idx = 2; usb_parser_state = 2; }
-    } else if (usb_parser_state == 2) {
+    } 
+    else if (usb_parser_state == 2) 
+    {
         usb_rx_buffer[usb_packet_idx++] = b;
-        if (usb_packet_idx >= usb_packet_len + 2) { 
+        if (usb_packet_idx >= usb_packet_len + 2) 
+        { 
             if (crsf_crc8(&usb_rx_buffer[2], usb_packet_len - 1) == usb_rx_buffer[usb_packet_len + 1]) {
-                if (usb_rx_buffer[2] == CRSF_FRAMETYPE_RC_CHANNELS_PACKED) {
+                if (usb_rx_buffer[2] == CRSF_FRAMETYPE_RC_CHANNELS_PACKED) 
+                {
                     memcpy(writing_tx_ptr, usb_rx_buffer, usb_packet_len + 2);
                     uint8_t* temp = (uint8_t*)active_tx_ptr;
                     active_tx_ptr = writing_tx_ptr;
@@ -147,12 +159,17 @@ void parse_usb_byte(uint8_t b) {
     }
 }
 
-void parse_uart_byte(uint8_t b) {
-    if (uart_parser_state == 0) {
-        if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || b == CRSF_ADDRESS_CRSF_TRANSMITTER) { 
+void parse_crsf_in(uint8_t b) 
+{
+    if (uart_parser_state == 0) 
+    {
+        if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || b == CRSF_ADDRESS_CRSF_TRANSMITTER) 
+        { 
             uart_rx_buffer[0] = b; uart_parser_state = 1; 
         }
-    } else if (uart_parser_state == 1) {
+    } 
+    else if (uart_parser_state == 1) 
+    {
         if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { uart_parser_state = 0; } 
         else { uart_rx_buffer[1] = b; uart_packet_len = b; uart_packet_idx = 2; uart_parser_state = 2; }
     } else if (uart_parser_state == 2) {
@@ -186,7 +203,8 @@ for (int i = 0; i < uart_packet_len + 2; i++) {
 // MAIN LOOP
 // ============================================================================
 
-int main() {
+int main() 
+{
     stdio_init_all();
 
     gpio_init(LED_PIN);
@@ -200,49 +218,34 @@ int main() {
     apply_failsafe();
     last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
 
-    // 2. START TRANSMITTING IMMEDIATELY (200Hz default)
-    // We don't wait for UART sync anymore.
     add_alarm_in_us(5000, tx_alarm_callback, NULL, true);
     timer_active = true;
 
-    while(1) {
+    while(1) 
+    {
 
         while (uart_is_readable(PC_UART)) 
         {
             uint8_t c = uart_getc(PC_UART);
             gpio_put(DBG_PIN, !gpio_get(DBG_PIN));
 
-// --- ЭХО: отправляем этот же байт обратно сразу ---
-    //uart_putc(PC_UART, c);
-            parse_usb_byte(c);
+            parse_user_in(c);
         }
         // Handle UART Telemetry
-
         uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
-
         while (rx_read_ptr != dma_write_ptr) 
         {
 
-            parse_uart_byte(rx_ring_buf[rx_read_ptr++]); 
+            parse_crsf_in(rx_ring_buf[rx_read_ptr++]); 
 
         }
-
-
-        // Failsafe Check (1 second timeout)
-
-        if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 2000) {
+        // failsafe check with 2000 ms timeout
+        if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 2000) 
+        {
             apply_failsafe();
 
             last_usb_packet_ms = to_ms_since_boot(get_absolute_time()); 
-
-            gpio_put(LED_PIN, 0); // LED off = Failsafe
-
-        } else {
-
-            gpio_put(LED_PIN, 1); // LED on = USB Link Active
-
-        }
-
+        } 
     }
 
     sleep_us(10);
