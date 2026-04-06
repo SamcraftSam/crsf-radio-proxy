@@ -2,7 +2,7 @@ import serial
 import time
 
 # --- Configuration ---
-SERIAL_PORT = '/dev/ttyACM0' 
+SERIAL_PORT = '/dev/ttyUSB0' 
 BAUD_RATE = 420000 
 FREQ_HZ = 200      
 

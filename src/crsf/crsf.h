@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define CRSF_MAX_FRAME_SIZE 256
+#define CRSF_MAX_FRAME_SIZE 64
 #define CRSF_RC_FRAME_SIZE  24
 
 #define CRSF_PAYLOAD_OFFSET 3 // [Sync] [Len] [Type] ...
@@ -13,6 +13,32 @@
 #define CRSF_CHANNEL_MIN 172
 #define CRSF_CHANNEL_MID 992
 #define CRSF_CHANNEL_MAX 1811
+
+// if frametype is higher than this, then packed is extended
+#define CRSF_EXT_FRAMETYPE_LIMIT 0x28
+
+
+// CRSF PACKET STRUCTURE MACROS
+enum {
+    SYNC              = 0,
+    LEN               = 1,
+    TYPE              = 2,
+    EXT_DEST          = 3,
+    EXT_SRC           = 4,
+    EXT_PAYLOAD_START = 5,
+};
+#define PAYLOAD_START (TYPE + 1)
+
+// STATE MACHINE STATES
+enum {
+    CRSF_PARSER_SYNC = 0,
+    CRSF_PARSER_FRAME_LEN,
+    CRSF_PARSER_TYPE,
+    CRSF_PARSER_EXT_DEST,
+    CRSF_PARSER_EXT_ORIGIN,
+    CRSF_PARSER_PAYLOAD,
+    CRSF_PARSER_CRC,
+};
 
 enum {
     CRSF_BYTE_SYNC   = 0xC8,
@@ -36,6 +62,13 @@ typedef enum {
     CRSF_FRAMETYPE_OPENTX_SYNC        = 0x10,
 } crsf_frame_type_t;
 
+typedef struct {
+    uint8_t rxbuf[CRSF_MAX_FRAME_SIZE];
+    uint8_t state;
+    uint8_t len;
+    uint8_t idx;
+} crsf_parser_t;
+
 typedef struct __attribute__((packed)) {
     uint8_t uplink_rssi_ant_1;
     uint8_t uplink_rssi_ant_2;
@@ -53,3 +86,6 @@ typedef struct __attribute__((packed)) {
 uint8_t crsf_crc8(const uint8_t *ptr, uint8_t len);
 uint8_t crsf_pack_rc_channels(uint8_t *buf, const uint16_t channels[16]);
 bool    crsf_parse_link_stats(const uint8_t *frame, crsf_link_stats_t *stats);
+
+int8_t crsf_collect_byte(uint8_t b, crsf_parser_t *parser);
+int8_t crsf_parse_sync(uint8_t * rxbuf, uint8_t * packet_len, int64_t * interval_us, int64_t * phase_us);

@@ -21,7 +21,7 @@ target_sources(main_app PRIVATE src/main.c
 
 target_include_directories(main_app PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/src/crsf
-    ${CMAKE_CURRENT_LIST_DIR}/src/control
+    ${CMAKE_CURRENT_LIST_DIR}/src
 )
 
 target_link_libraries(main_app 
@@ -29,6 +29,7 @@ target_link_libraries(main_app
         hardware_uart
         hardware_dma
         hardware_timer
+        hardware_sync
         )
 
 target_compile_definitions(main_app PRIVATE PICO_STDIO_USB_STDOUT_TIMEOUT_US=1000)

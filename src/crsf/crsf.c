@@ -78,3 +78,90 @@ bool crsf_parse_link_stats(const uint8_t *frame, crsf_link_stats_t *stats)
     memcpy(stats, &frame[3], sizeof(crsf_link_stats_t));
     return true;
 }
+
+/*
+ *
+ * @warn packet_len is not just LEN from tha packet, but full length!
+ * */
+int8_t crsf_parse_sync(uint8_t * rxbuf, uint8_t * packet_len, int64_t * interval_us, int64_t * phase_us)
+{
+    // (not critical) TODO: maybe add proper SRC/DEST handling later
+    if (rxbuf[TYPE] == CRSF_FRAMETYPE_RADIO_ID && 
+        rxbuf[EXT_PAYLOAD_START] == CRSF_FRAMETYPE_OPENTX_SYNC)
+    {
+        uint32_t interval_raw = ((uint32_t)rxbuf[6] << 24) | (rxbuf[7] << 16) | (rxbuf[8] << 8) | rxbuf[9];
+        uint32_t phase_raw    = ((uint32_t)rxbuf[10] << 24) | (rxbuf[11] << 16) | (rxbuf[12] << 8) | rxbuf[13];
+        
+        *interval_us = (int32_t)interval_raw / 10;
+        *phase_us    = (int32_t)phase_raw    / 10;
+
+        if (*phase_us > 1000) *phase_us = 1000;
+        if (*phase_us < -1000) *phase_us = -1000;
+
+        return 1;
+    }
+    return 0;
+}
+
+/*
+ *  
+ *  @params 
+ *  b - byte from the input stream
+ *  state - variable of the state machine state.
+ *  rxbuf - processed buffer
+ *  len - parsed value of LEN from the packet
+ *  rxbuf_idx - counter for the state machine of bytes collected.
+ *
+ * */
+int8_t crsf_collect_byte(uint8_t b, crsf_parser_t *parser)
+{
+    uint8_t parsing_done = 0;
+
+    switch (parser->state)
+    {
+        case CRSF_PARSER_SYNC:
+            if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || 
+                b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || 
+                b == CRSF_ADDRESS_CRSF_TRANSMITTER)
+            {
+                parser->rxbuf[SYNC] = b;
+                parser->state = CRSF_PARSER_FRAME_LEN;
+            }
+            break;
+
+        case CRSF_PARSER_FRAME_LEN:
+            if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2)
+            {
+                parser->state = CRSF_PARSER_SYNC;
+            }
+            else 
+            {
+                parser->rxbuf[LEN] = b;
+                parser->len = b;
+                parser->idx = 2; // PAYLOAD state starts writing from TYPE byte index
+                parser->state = CRSF_PARSER_PAYLOAD;
+            }
+            break;
+
+        case CRSF_PARSER_PAYLOAD:
+            parser->rxbuf[parser->idx++] = b; 
+            
+            if (parser->idx >= parser->len + 2)
+            {
+                if (crsf_crc8(&parser->rxbuf[TYPE], parser->len - 1) == b)
+                {
+                    parsing_done = 1; 
+                }
+                parser->state = CRSF_PARSER_SYNC;
+            }
+            break;
+            
+        default:
+            parser->state = CRSF_PARSER_SYNC;
+            break;
+    }
+
+    return parsing_done;
+}
+
+

@@ -2,7 +2,7 @@ import serial
 import time
 import random
 
-PORT = "/dev/ttyUSB0"   # Твой UART-адаптер
+PORT = "/dev/ttyUSB0"  
 BAUD = 420000 
 
 def crc8(data):
@@ -35,10 +35,9 @@ def make_channels():
     return ch
 
 def parse_crsf(raw_buffer):
-    """ Разбирает буфер и возвращает список найденных валидных пакетов """
     packets = []
     while len(raw_buffer) >= 4:
-        # Ищем заголовок (Address)
+        
         if raw_buffer[0] in [0xC8, 0xEE, 0xEA, 0xEC]:
             length = raw_buffer[1]
             if length < 2 or length > 62: # CRSF max frame size check
@@ -52,20 +51,19 @@ def parse_crsf(raw_buffer):
                 
                 if crc8(payload) == expected_crc:
                     packets.append(packet)
-                    del raw_buffer[:length + 2] # Удаляем обработанный пакет
+                    del raw_buffer[:length + 2] 
                     continue
                 else:
-                    # CRC не совпал, возможно это не начало пакета
+                    
                     raw_buffer.pop(0)
             else:
-                break # Ждем догрузки данных
+                break 
         else:
-            raw_buffer.pop(0) # Мусор в начале, удаляем по байту
+            raw_buffer.pop(0) 
             
     return packets
 
 def run_test():
-    # timeout=0 для неблокирующего чтения
     ser = serial.Serial(PORT, BAUD, timeout=0)
     
     tx_interval = 0.005 # 200 Hz
@@ -77,16 +75,15 @@ def run_test():
     while True:
         current_time = time.perf_counter()
 
-        # 1. ЧТЕНИЕ И ПАРСИНГ
+        
         if ser.in_waiting > 0:
             rx_raw_storage.extend(ser.read(ser.in_waiting))
             
             valid_packets = parse_crsf(rx_raw_storage)
-            for p in valid_packets:
-                # Выводим тип пакета (байт 2) и данные в HEX
+            for p in valid_packets: 
                 print(f"RX Packet [Type {p[2]:02x}]: {p.hex(' ')}")
 
-        # 2. ПЕРЕДАЧА (200Hz)
+        
         if current_time >= next_tx_time:
             frame = pack_channels(make_channels())
             try:
@@ -96,7 +93,6 @@ def run_test():
                 
             next_tx_time += tx_interval
 
-        # Чтобы не грузить ядро на 100%
         time.sleep(0.0001)
 
 if __name__ == "__main__":

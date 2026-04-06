@@ -4,8 +4,10 @@
 #include "hardware/dma.h"
 #include "hardware/uart.h"
 #include "hardware/timer.h"
+#include "hardware/sync.h"
 #include "pico/stdio/driver.h"
 #include "crsf.h"
+#include "channelmap.h"
 
 // --- Hardware Definitions ---
 #define LED_PIN 26
@@ -24,15 +26,15 @@
 #define PC_RX_PIN 5
 
 // --- Timing & Phase Lock ---
-volatile int64_t current_phase_correction = 0;
-volatile int64_t normal_interval_us = 5000; // Default 200Hz
+volatile int64_t phase_correction = 0;
+volatile int64_t interval_us = 5000; // Default 200Hz
 bool timer_active = false;
 
 // --- Double Buffering for TX ---
 uint8_t tx_buffer_A[CRSF_MAX_FRAME_SIZE];
 uint8_t tx_buffer_B[CRSF_MAX_FRAME_SIZE];
 volatile uint8_t* active_tx_ptr = tx_buffer_A; 
-uint8_t* writing_tx_ptr = tx_buffer_B;         
+volatile uint8_t* writing_tx_ptr = tx_buffer_B;         
 
 volatile uint32_t last_usb_packet_ms = 0;      
 
@@ -42,18 +44,18 @@ volatile int rx_ctrl_chan;
 uint8_t rx_ring_buf[256] __attribute__((aligned(256)));
 uint8_t rx_read_ptr = 0; 
 
-// --- Parser States ---
-uint8_t uart_parser_state = 0, uart_packet_len = 0, uart_packet_idx = 0;
-uint8_t uart_rx_buffer[CRSF_MAX_FRAME_SIZE];
-uint8_t usb_parser_state = 0, usb_packet_len = 0, usb_packet_idx = 0;
-uint8_t usb_rx_buffer[CRSF_MAX_FRAME_SIZE];
-
+crsf_parser_t pc_parser = {0};
+crsf_parser_t rx_parser = {0};
 // ============================================================================
 // HARDWARE & TRANSMIT
 // ============================================================================
 
 void init_hardware() 
 {
+    gpio_init(LED_PIN);
+    gpio_set_dir(LED_PIN, GPIO_OUT);
+    gpio_init(DBG_PIN);
+    gpio_set_dir(DBG_PIN, GPIO_OUT);
     uart_init(CRSF_UART, BAUD_RATE);
     gpio_set_function(CRSF_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(CRSF_RX_PIN, GPIO_FUNC_UART);
@@ -88,115 +90,42 @@ void trigger_crsf_tx()
     }
 }
 
-void apply_failsafe() 
+// Writes p2 to p1 and p1 to p2
+void safe_ptr_swap(volatile uint8_t ** p1, volatile uint8_t ** p2)
 {
-    //printf("Failsafe!\r\n");
-    uint16_t fs_channels[16];
+    uint32_t ints = save_and_disable_interrupts();
+    uint8_t * tmp = (uint8_t *)*p1;
+    *p1 = *p2;
+    *p2 = tmp;
+    restore_interrupts(ints);
+}
+
+void prepare_failsafe_packet() 
+{
+    uint16_t fs_channels[RC_CHANNELS_NUM];
     for (int i = 0; i < 16; i++) fs_channels[i] = CRSF_CHANNEL_MID;
-    //fs_channels[0] = CRSF_CHANNEL_MIN; //- ROLL
-    //fs_channels[1] = CRSF_CHANNEL_MIN; //- PITCH
-    fs_channels[2] = CRSF_CHANNEL_MIN; //- Throttle
-    //fs_channels[3]  = CRSF_CHANNEL_MIN; //- YAW
-    
-    // ARMED when both are MAX!!!
-    //fs_channels[4]  = CRSF_CHANNEL_MAX;
-    //fs_channels[13] = CRSF_CHANNEL_MAX;
+    fs_channels[RC_CHAN_THROTTLE]  = CRSF_CHANNEL_MIN; //- Throttle
+    fs_channels[RC_CHAN_DISARM_AUX1]  = CRSF_CHANNEL_MIN;
+    fs_channels[RC_CHAN_DISARM_AUX10] = CRSF_CHANNEL_MIN;
 
     crsf_pack_rc_channels(writing_tx_ptr, fs_channels);
     writing_tx_ptr[25] = crsf_crc8((uint8_t*)&writing_tx_ptr[2], 23);
     
     // Swap safely to active buffer
-    uint8_t* temp = (uint8_t*)active_tx_ptr;
-    active_tx_ptr = writing_tx_ptr;
-    writing_tx_ptr = temp;
+    safe_ptr_swap(&active_tx_ptr, &writing_tx_ptr);
 }
 
 int64_t tx_alarm_callback(alarm_id_t id, void *user_data) 
 {
     trigger_crsf_tx(); 
     
-    int64_t next_delay = normal_interval_us;
-    if (current_phase_correction != 0) 
+    int64_t next_delay = interval_us;
+    if (phase_correction != 0) 
     {
-        next_delay -= current_phase_correction; 
-        current_phase_correction = 0; 
+        next_delay -= phase_correction; 
+        phase_correction = 0; 
     }
     return -next_delay; 
-}
-
-// ============================================================================
-// PARSERS
-// ============================================================================
-
-void parse_user_in(uint8_t b) 
-{
-    if (usb_parser_state == 0) 
-    {
-        if (b == 0xC8 || b == 0xEE) { usb_rx_buffer[0] = b; usb_parser_state = 1; }
-    } 
-    else if (usb_parser_state == 1) 
-    {
-        if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { usb_parser_state = 0; } 
-        else { usb_rx_buffer[1] = b; usb_packet_len = b; usb_packet_idx = 2; usb_parser_state = 2; }
-    } 
-    else if (usb_parser_state == 2) 
-    {
-        usb_rx_buffer[usb_packet_idx++] = b;
-        if (usb_packet_idx >= usb_packet_len + 2) 
-        { 
-            if (crsf_crc8(&usb_rx_buffer[2], usb_packet_len - 1) == usb_rx_buffer[usb_packet_len + 1]) {
-                if (usb_rx_buffer[2] == CRSF_FRAMETYPE_RC_CHANNELS_PACKED) 
-                {
-                    memcpy(writing_tx_ptr, usb_rx_buffer, usb_packet_len + 2);
-                    uint8_t* temp = (uint8_t*)active_tx_ptr;
-                    active_tx_ptr = writing_tx_ptr;
-                    writing_tx_ptr = temp;
-                    last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
-                }
-            }
-            usb_parser_state = 0;
-        }
-    }
-}
-
-void parse_crsf_in(uint8_t b) 
-{
-    if (uart_parser_state == 0) 
-    {
-        if (b == CRSF_ADDRESS_FLIGHT_CONTROLLER || b == CRSF_ADDRESS_CRSF_RADIO_TRANSMITTER || b == CRSF_ADDRESS_CRSF_TRANSMITTER) 
-        { 
-            uart_rx_buffer[0] = b; uart_parser_state = 1; 
-        }
-    } 
-    else if (uart_parser_state == 1) 
-    {
-        if (b > (CRSF_MAX_FRAME_SIZE - 2) || b < 2) { uart_parser_state = 0; } 
-        else { uart_rx_buffer[1] = b; uart_packet_len = b; uart_packet_idx = 2; uart_parser_state = 2; }
-    } else if (uart_parser_state == 2) {
-        uart_rx_buffer[uart_packet_idx++] = b;
-        if (uart_packet_idx >= uart_packet_len + 2) { 
-            if (crsf_crc8(&uart_rx_buffer[2], uart_packet_len - 1) == uart_rx_buffer[uart_packet_len + 1]) {
-                if (uart_rx_buffer[2] == CRSF_FRAMETYPE_RADIO_ID && uart_rx_buffer[5] == CRSF_FRAMETYPE_OPENTX_SYNC) {
-                    uint32_t interval_raw = (uart_rx_buffer[6] << 24) | (uart_rx_buffer[7] << 16) | (uart_rx_buffer[8] << 8) | uart_rx_buffer[9];
-                    uint32_t phase_raw = (uart_rx_buffer[10] << 24) | (uart_rx_buffer[11] << 16) | (uart_rx_buffer[12] << 8) | uart_rx_buffer[13];
-                    
-                    normal_interval_us = (int32_t)interval_raw / 10;
-                    current_phase_correction = (int32_t)phase_raw / 10;
-                    // Clamp phase
-                    if (current_phase_correction > 1000) current_phase_correction = 1000;
-                    if (current_phase_correction < -1000) current_phase_correction = -1000;
-                } 
-                else 
-                {
-                    static int cnt = 0;
-     
-for (int i = 0; i < uart_packet_len + 2; i++) {
-    uart_putc(PC_UART, uart_rx_buffer[i]);
-}                }
-            } 
-            uart_parser_state = 0; 
-        }
-    }
 }
 
 // ============================================================================
@@ -206,48 +135,58 @@ for (int i = 0; i < uart_packet_len + 2; i++) {
 int main() 
 {
     stdio_init_all();
-
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_init(DBG_PIN);
-    gpio_set_dir(DBG_PIN, GPIO_OUT);
     init_hardware();
-    sleep_ms(500); // Quick settling
-
-    // 1. Prepare safe disarmed packet
-    apply_failsafe();
+    sleep_ms(500);
+    prepare_failsafe_packet();
     last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
-
-    add_alarm_in_us(5000, tx_alarm_callback, NULL, true);
+    add_alarm_in_us(interval_us, tx_alarm_callback, NULL, true);
     timer_active = true;
 
     while(1) 
     {
+        int8_t ret = 0;
 
+        // Handle PC UART (send to radio)
         while (uart_is_readable(PC_UART)) 
         {
             uint8_t c = uart_getc(PC_UART);
             gpio_put(DBG_PIN, !gpio_get(DBG_PIN));
+            ret = crsf_collect_byte(c, &pc_parser);
 
-            parse_user_in(c);
+            if (ret && pc_parser.rxbuf[TYPE] == CRSF_FRAMETYPE_RC_CHANNELS_PACKED)
+            {
+                memcpy(writing_tx_ptr, pc_parser.rxbuf, pc_parser.len + 2);
+
+                // SAFE SWAP
+                safe_ptr_swap(&active_tx_ptr, &writing_tx_ptr);
+                last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
+            }
+
         }
-        // Handle UART Telemetry
+        
+
+        // Handle UART Telemetry (get sync / send telemetry to PC)
         uint8_t dma_write_ptr = (uint8_t)(dma_hw->ch[rx_ctrl_chan].write_addr - (uint32_t)rx_ring_buf); 
         while (rx_read_ptr != dma_write_ptr) 
         {
+            ret = crsf_collect_byte(rx_ring_buf[rx_read_ptr++], &rx_parser);
 
-            parse_crsf_in(rx_ring_buf[rx_read_ptr++]); 
-
+            if (ret)
+            {
+                ret = crsf_parse_sync(rx_parser.rxbuf, &rx_parser.len, (int64_t *)&interval_us, (int64_t *)&phase_correction);
+                for (int i = 0; i < rx_parser.len + 2; i++) 
+                {
+                    uart_putc(PC_UART, rx_parser.rxbuf[i]);
+                } 
+            }
         }
+        
         // failsafe check with 2000 ms timeout
         if (to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 2000) 
         {
-            apply_failsafe();
-
+            prepare_failsafe_packet();
             last_usb_packet_ms = to_ms_since_boot(get_absolute_time()); 
         } 
     }
-
     sleep_us(10);
-
 } 
