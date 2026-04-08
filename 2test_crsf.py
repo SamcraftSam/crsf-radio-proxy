@@ -2,7 +2,7 @@ import serial
 import time
 import random
 
-PORT = "/dev/ttyACM0"  
+PORT = "/dev/ttyACM1"  
 BAUD = 420000 
 
 def crc8(data):

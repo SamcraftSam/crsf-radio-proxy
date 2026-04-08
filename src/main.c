@@ -12,6 +12,19 @@
 #include "crsf.h"
 #include "channelmap.h"
 
+#include "pico/multicore.h"
+#include "pico/util/queue.h"
+
+
+// Queue from core0 -> core1 (TX data / events for USB)
+queue_t core0_to_core1;
+static uint8_t core0_to_core1_buf[256];
+
+// Queue from core1 -> core0 (commands / failsafe triggers)
+queue_t core1_to_core0;
+static uint8_t core1_to_core0_buf[256];
+
+
 // --- Hardware Definitions ---
 #define LED_PIN 26
 #define DBG_PIN 27
@@ -154,7 +167,7 @@ int main()
     //sleep_ms(500);
     prepare_failsafe_packet();
     last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
-    add_alarm_in_us(interval_us, tx_alarm_callback, NULL, true);
+    //add_alarm_in_us(interval_us, tx_alarm_callback, NULL, true);
     timer_active = true;
 
     while(1) 
@@ -162,12 +175,18 @@ int main()
         tud_task();
         
         //DBG_CH(".\r\n");
+        //if (tud_cdc_n_connected(0)) 
+        {
+            // print on CDC 0 some debug message
+            //printf("Connected to CDC 0\n"); 
+        }
 
         static uint8_t ready_to_flush = 0;
         int8_t ret = 0;
 
         // Handle PC UART (send to radio)
-        if (tud_cdc_available())
+        if (0)
+        //if (tud_cdc_available())
         {
             uint8_t buf[64];
             uint32_t count = tud_cdc_read(buf, sizeof(buf));
@@ -223,10 +242,10 @@ int main()
                 //{
                 //    uart_putc(PC_UART, rx_parser.rxbuf[i]);
                 //}
-                if (tud_cdc_n_connected(0) || tud_cdc_write_available() >= (rx_parser.len + 2))
+                if (tud_cdc_write_available() >= (rx_parser.len + 2))
                 {
                     DBG_CH("W\r\n");
-                    tud_cdc_write(rx_parser.rxbuf, rx_parser.len + 2);
+                    //tud_cdc_n_write(1, rx_parser.rxbuf, rx_parser.len + 2);
                     ready_to_flush = 1;
                 }
                 else
@@ -245,13 +264,85 @@ int main()
         
         if(ready_to_flush)
         {
-            tud_cdc_write_flush();
+            //tud_cdc_write_flush();
             ready_to_flush = 0;
         }
         //sleep_us(10);
     } 
 }
 
+// ======================
+//   MULTICORE
+// ======================
+
+
+void core0_main() {
+    init_hardware();
+    prepare_failsafe_packet();
+    last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
+    //add_alarm_in_us(interval_us, tx_alarm_callback, NULL, true);
+    timer_active = true;
+
+    while(1) {
+        // ---- Original main loop logic ----
+        // Keep all your PC UART / CRSF parsing, DMA stuff here
+        // Replace CDC writes with queue messages to core1 if needed
+
+        // Example: send a debug message to core1
+        uint8_t msg = 0xAA; // dummy
+        queue_try_add(&core0_to_core1, &msg);
+
+        // Example: check if core1 sent command (e.g., flush)
+        uint8_t cmd;
+        if (queue_try_remove(&core1_to_core0, &cmd)) {
+            if(cmd == 1) {
+                // do failsafe packet?
+                prepare_failsafe_packet();
+            }
+        }
+    }
+}
+
+
+
+
+void core1_main() {
+    board_init();
+    tusb_init();
+    //tud_init(0);
+    if (board_init_after_tusb) 
+    {
+        board_init_after_tusb();
+    }
+    stdio_init_all(); 
+
+    while(1) {
+        tud_task(); // keep USB alive
+
+        // Check queue for messages from core0
+        uint8_t msg;
+        if(queue_try_remove(&core0_to_core1, &msg)) {
+            // e.g., log debug or flush to USB CDC
+            printf("Msg from core0: %02X\n", msg);
+        }
+        tud_cdc_n_write(0, (uint8_t const *) "OK\r\n", 4);
+        tud_cdc_n_write_flush(0);
+        sleep_ms(10);
+    }
+}
+
+
+
+int _main() {
+    queue_init(&core0_to_core1, sizeof(uint8_t), 256);
+    queue_init(&core1_to_core0, sizeof(uint8_t), 256);
+
+    // Launch USB/core1 stuff
+    multicore_launch_core1(core1_main);
+
+    // Core0 now runs your heavy CRSF / UART logic
+    core0_main();
+}
 
 
 void tud_cdc_rx_cb(uint8_t itf)
@@ -259,7 +350,7 @@ void tud_cdc_rx_cb(uint8_t itf)
     // allocate buffer for the data in the stack
     uint8_t buf[CFG_TUD_CDC_RX_BUFSIZE];
 
-    printf("RX CDC %d\n", itf);
+    //printf("RX CDC %d\n", itf);
 
     // read the available data 
     // | IMPORTANT: also do this for CDC0 because otherwise
@@ -268,7 +359,8 @@ void tud_cdc_rx_cb(uint8_t itf)
     uint32_t count = tud_cdc_n_read(itf, buf, sizeof(buf));
 
     // check if the data was received on the second cdc interface
-    if (itf == 1) {
+    if (itf == 1 && to_ms_since_boot(get_absolute_time()) - last_usb_packet_ms > 100) {
+        last_usb_packet_ms = to_ms_since_boot(get_absolute_time());
         // process the received data
         buf[count] = 0; // null-terminate the string
         // now echo data back to the console on CDC 0
