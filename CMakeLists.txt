@@ -16,6 +16,7 @@ add_executable(main_app)
 # pico_generate_pio_header(main_app ${CMAKE_CURRENT_LIST_DIR}/src/tx.pio)
 
 target_sources(main_app PRIVATE src/main.c
+                                src/usb_descriptors.c
                                 src/crsf/crsf.c)
 
 
@@ -30,6 +31,8 @@ target_link_libraries(main_app
         hardware_dma
         hardware_timer
         hardware_sync
+        tinyusb_device 
+        tinyusb_board
         )
 
 target_compile_definitions(main_app PRIVATE PICO_STDIO_USB_STDOUT_TIMEOUT_US=1000)

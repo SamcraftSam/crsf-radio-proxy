@@ -1,6 +1,7 @@
 # crsf-radio-proxy
-RP2040-based firmware for FPV drone remote controller, that acts like a bridge between computer and CRSF-based radios(ELRS).
+RP2040-based firmware for FPV drone handset emulation, that acts like a bridge between computer and CRSF-based radios(ELRS).
 
+This repo might be useful if you want to build your own handset as there is very limited amount of projects that cover this topic. Most of the projects are designed for RX side, not TX.
 
 # Arch notes:
 
@@ -21,13 +22,15 @@ USB RX DMA stores recent USB commands that will be put in separate buffer, parse
 
 USB TX DMA sends telemetry or/and confirmation packets. 
 
-Core 1: PID loops (TODO: description)
+Core 1: PID loops (TODO)
 
 Needed to turn simple commands in CRSF-ready values.
 
 Also needed for more advanced stuff (altitude controls).
 
 # Protocol for USB
+
+# UPD: Currently using CRSF for USB/UART
 
 Must contain commands such as:
 
@@ -39,4 +42,4 @@ Must contain commands such as:
 
 # UPD:
 
-- TTGO v2 now uses custom-built firmware with full-duplex-like hardware setup. It might still act like half duplex, but at least pins are different.
+- TTGO v2 now uses custom-built firmware with full-duplex-like hardware setup. This is achieved by changing pinout settings in ExpressLRS web configuration panel.

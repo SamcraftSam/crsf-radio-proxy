@@ -1,91 +1,94 @@
 import serial
 import time
+import random
 
 # --- Configuration ---
-SERIAL_PORT = '/dev/ttyUSB0' 
-BAUD_RATE = 420000 
-FREQ_HZ = 200      
+PORT = "/dev/ttyACM0"
+BAUD = 420000
+TX_FREQ = 200  # Hz
+TX_INTERVAL = 1.0 / TX_FREQ  # 0.005 seconds
 
-# --- CRSF Helpers ---
-def crsf_crc8(data):
+def crc8(data):
     crc = 0
-    for byte in data:
-        crc ^= byte
+    for b in data:
+        crc ^= b
         for _ in range(8):
-            if crc & 0x80:
-                crc = (crc << 1) ^ 0xD5
-            else:
-                crc <<= 1
-            crc &= 0xFF
+            crc = ((crc << 1) ^ 0xD5) & 0xFF if crc & 0x80 else (crc << 1) & 0xFF
     return crc
 
-def pack_crsf_channels(channels_16):
+def pack_channels(ch):
+    # CRSF Frame: [Addr] [Len] [Type] [Payload...] [CRC]
+    # Payload for RC Channels is 22 bytes
+    buf = bytearray([0xC8, 24, 0x16])
+    bitbuf = 0
     bits = 0
-    bit_count = 0
-    buffer = bytearray()
-    for ch in channels_16:
-        bits |= (ch & 0x7FF) << bit_count
-        bit_count += 11
-        while bit_count >= 8:
-            buffer.append(bits & 0xFF)
-            bits >>= 8
-            bit_count -= 8
-    return buffer
+    for c in ch:
+        bitbuf |= (c & 0x7FF) << bits
+        bits += 11
+        while bits >= 8:
+            buf.append(bitbuf & 0xFF)
+            bitbuf >>= 8
+            bits -= 8
+    buf.append(crc8(buf[2:]))
+    return buf
 
-def create_crsf_packet(channels):
-    header = bytearray([0xC8, 24, 0x16])
-    payload = pack_crsf_channels(channels)
-    packet = header + payload
-    crc = crsf_crc8(packet[2:])
-    packet.append(crc)
-    return packet
+def make_channels():
+    # Standard CRSF range is 172 to 1811 (1000-2000us)
+    # Midpoint is 992
+    ch = [992] * 16  
+    ch[2] = random.randint(800, 1200) # Slight jitter on Throttle/Pitch for testing
+    ch[13] = 1811
+    ch[4] = 1811
+    return ch
 
-# --- Main Test Loop ---
-try:
-    ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=0.01)
-    print(f"Connected to Pico on {SERIAL_PORT}")
-    
-    start_time = time.time()
-    last_print_time = 0  # Tracker for the 10s log
+def run_tx_only():
+    try:
+        ser = serial.Serial(PORT, BAUD, timeout=0)
+        # Flush buffers to start clean
+        ser.reset_input_buffer()
+        ser.reset_output_buffer()
+    except Exception as e:
+        print(f"[ERROR] Could not open {PORT}: {e}")
+        return
 
-    while True:
-        loop_start = time.time()
-        
-        # 1. Generate oscillating value for Roll (Channel 0)
-        elapsed = time.time() - start_time
-        val = int(992 + 819 * (0.5 * (1 + 0.5 * (elapsed % 2))))
-        
-        # 2. Build channels
-        channels = [992] * 16
-        channels[0] = val   
-        channels[4] = 1811  # AUX1 ARM
-        
-        # 3. Create and Send packet
-        packet = create_crsf_packet(channels)
-        ser.write(packet)
-        
-        # 4. Periodic Logging (Every 10 seconds)
-        if loop_start - last_print_time >= 10.0:
-            # Format bytes as 0xEE 0x18 ...
-            hex_formatted = " ".join(f"0x{b:02X}" for b in packet)
-            print(f"\n[{time.strftime('%H:%M:%S')}] Current Packet:\n{hex_formatted}")
-            last_print_time = loop_start
+    print(f"[SYSTEM] Starting 200Hz TX-only test on {PORT}...")
+    print("Press Ctrl+C to stop.")
 
-        # 5. Check for Telemetry coming back
-        if ser.in_waiting:
-            telemetry = ser.read(ser.in_waiting)
-            # Just a quiet indicator that telemetry is flowing
-            print(".", end="", flush=True) 
+    next_tx_time = time.perf_counter()
+    packet_count = 0
+    start_time = time.perf_counter()
 
-        # 6. Maintain Frequency (100Hz)
-        sleep_time = (1.0 / FREQ_HZ) - (time.time() - loop_start)
-        if sleep_time > 0:
-            time.sleep(sleep_time)
+    try:
+        while True:
+            current_time = time.perf_counter()
 
-except serial.SerialException as e:
-    print(f"Error: {e}")
-except KeyboardInterrupt:
-    print("\nStopping test...")
-finally:
-    if 'ser' in locals() and ser.is_open:
+            if current_time >= next_tx_time:
+                # 1. Generate Data
+                channels = make_channels()
+                frame = pack_channels(channels)
+
+                # 2. Send over USB
+                ser.write(frame)
+                packet_count += 1
+
+                # 3. Calculate next interval
+                next_tx_time += TX_INTERVAL
+
+                # Print stats every 2 seconds
+                if packet_count % (TX_FREQ * 2) == 0:
+                    elapsed = time.perf_counter() - start_time
+                    print(f"[STATS] Sent {packet_count} packets. Avg Rate: {packet_count/elapsed:.2f} Hz")
+
+            # 4. Precision Sleep
+            # We sleep until we are very close to the target, then busy-wait
+            time_to_wait = next_tx_time - time.perf_counter()
+            if time_to_wait > 0.001:
+                time.sleep(time_to_wait - 0.0005)
+
+    except KeyboardInterrupt:
+        print(f"\n[STOPPED] Sent {packet_count} total packets.")
+    finally:
         ser.close()
+
+if __name__ == "__main__":
+    run_tx_only()
