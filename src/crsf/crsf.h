@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 Alexander @SamcraftSam, MIT License */
+
 #pragma once
 #include <stdint.h>
 #include <stdbool.h>

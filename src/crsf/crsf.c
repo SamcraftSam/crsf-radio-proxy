@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 Alexander @SamcraftSam, MIT License */
+
 #include "crsf.h"
 
 // CRSF CRC8 Table
